@@ -13,3 +13,11 @@ a few backend validations.
 
 When it comes to backend technology we used the most popular django backend and using python we applied some backend funcinalities such as 
 validating username( username should be unique!)
+
+# Burning Questions
+
+## Which File is application and Project
+formsSubmission is Project File
+forms is app file
+templates folder contains html pages
+static folder contains static files(css, js, images)
