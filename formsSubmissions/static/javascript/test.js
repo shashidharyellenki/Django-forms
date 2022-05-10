@@ -10,6 +10,10 @@ const Register = document.getElementById('Register')
 const validateEmail =/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 let components = [FirstName, LastName, Email, Username, Password, Confrim_Password, Birthday_date, phone];
 //adding eventlistners to all the components
+// testing
+console.log(FirstName.parentElement.children)
+
+
 
 Register.disabled = true;
 components.forEach(component=>{
@@ -62,10 +66,9 @@ Register.addEventListener('click',()=>{
         alert("Invalid Phone Number")
     }
     //validating date
-    const userYear = parseInt(Birthday_date.value.split("-")[0]) //2022-05-06
     if((year-userYear)<13){
         Register.disabled=true;
-        alert("Minimum age is 13 and your are too younge for this course");
+        alert("Minimum age is 13 and your are too young for this course");
     }
     //noticing user
     if((Password.value === Confrim_Password.value) && (validateEmail.test(Email.value)) && (phone.value.length === 10) && ((year-userYear)>=13)){
