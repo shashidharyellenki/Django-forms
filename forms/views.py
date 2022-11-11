@@ -36,17 +36,19 @@ def login(request):
     if request.method == 'POST':
         Username = request.POST['Username']
         password = request.POST['password']
-
+        uid = Register.objects.get(username=Username)
+        pid= Register.objects.get(password=password)
         if Register.objects.filter(username=Username).exists():
             if Register.objects.filter(password=password).exists():
-                context={
-                    "username":Username
-                }
-                return render(request, 'pagess/login.html',context)
+                if uid==pid:
+                    context={
+                        "username":Username
+                    }
+                    return render(request, 'pagess/login.html',context)
+                else:
+                    return HttpResponse("Wrong password")
             else:
-                return HttpResponse("Wrong password")
+                return HttpResponse("Invalid username")
         else:
-            return HttpResponse("Invalid username")
-    else:
-        return render(request,'pagess/index.html')
+            return render(request,'pagess/index.html')
 
